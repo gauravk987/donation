@@ -1,0 +1,44 @@
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Log In</h4>
+
+   
+   
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <nav ngbNav #nav="ngbNav" class="nav-tabs">
+      <ng-container ngbNavItem>
+        <a ngbNavLink>User</a>
+        <ng-template ngbNavContent>
+          <form>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <br>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </form>
+        </ng-template>
+      </ng-container>
+      <ng-container ngbNavItem>
+        <a ngbNavLink>NGO</a>
+        <ng-template ngbNavContent>
+          <form>
+            <input type="text" class="form-control" placeholder="NGOName" aria-label="ngoname" aria-describedby="basic-addon1">
+            <br>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </form>
+        </ng-template>
+      </ng-container>
+    </nav>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    
+    <br>
+   
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Log In</button>
+  </div>
+</ng-template>
+
+
+<button class="btn btn-success" type="submit" (click)="open(content)">Log In</button>
