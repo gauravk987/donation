@@ -2,9 +2,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Log In</h4>
-
-   
-   
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
@@ -12,11 +9,11 @@
       <ng-container ngbNavItem>
         <a ngbNavLink>User</a>
         <ng-template ngbNavContent>
-          <form>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [formControl]="user" >
             <br>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </form>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [formControl]="password">
+    
         </ng-template>
       </ng-container>
       <ng-container ngbNavItem>
@@ -36,7 +33,7 @@
    
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Log In</button>
+    <button type="button" class="btn btn-outline-dark" (click)="postData()">Log In</button>
   </div>
 </ng-template>
 
